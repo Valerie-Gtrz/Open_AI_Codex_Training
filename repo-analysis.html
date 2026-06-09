@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>agents.md Repository Analysis</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 32px; background: #f7f8fb; color: #111827; }
+    h1,h2,h3 { color: #111827; }
+    h1 { margin-bottom: 0.25rem; }
+    h2 { margin-top: 2rem; }
+    p { line-height: 1.65; margin: 0.8rem 0; }
+    .section { margin-bottom: 2rem; padding: 1.5rem; background: #ffffff; border-radius: 20px; box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08); }
+    .small { font-size: 0.95rem; color: #4b5563; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.75rem 0.5rem; border-bottom: 1px solid #e5e7eb; }
+    th { color: #111827; font-weight: 700; }
+    td { color: #374151; }
+    .code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 0.35rem; }
+    .diagram { width: 100%; max-width: 900px; display: block; margin: 1rem auto; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 2; rx: 18; }
+    .box-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .box-text { font-size: 12px; fill: #374151; }
+    .arrow { stroke: #9ca3af; stroke-width: 2; marker-end: url(#arrowhead); }
+    .note { color: #6b7280; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h1>agents.md Repository Analysis</h1>
+    <p class="small">Generated from the cloned repo at <strong>c:\Users\Valerie\OneDrive - UiPath\Documents\UiPath\Projects\open_ai_codex_training</strong>.</p>
+    <p>This repository is a marketing-style Next.js website that documents the open format <strong>AGENTS.md</strong>. It is implemented as a static-optimized React application with a small amount of client-side interactivity and GitHub API-backed data fetching.</p>
+  </div>
+
+  <div class="section">
+    <h2>Key Design</h2>
+    <p>The site is a single-page landing page built with Next.js and TypeScript. The root entry is <code class="code">pages/index.tsx</code>, which composes the site from reusable section components.</p>
+    <p>Core concepts:</p>
+    <ul>
+      <li><strong>Static generation</strong> with <code class="code">getStaticProps</code> to fetch GitHub contributor metadata at build time.</li>
+      <li><strong>Reusable section components</strong> for Hero, compatibility, examples, FAQ, and documentation content.</li>
+      <li><strong>Client-side interactivity</strong> in <code class="code">CompatibilitySection.tsx</code> for the agent logo marquee and grid toggle.</li>
+      <li><strong>Tailwind CSS-driven styling</strong> using <code class="code">@tailwindcss/postcss</code> plus a single global CSS file.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Last Five Commits</h2>
+    <table>
+      <thead>
+        <tr><th>Commit</th><th>Author</th><th>Date</th><th>Message</th><th>Files Changed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code">d1ac7f0</code></td>
+          <td>Dylan Joss</td>
+          <td>2026-03-12</td>
+          <td>Resolve merge conflict in CompatibilitySection.tsx (#163)</td>
+          <td><code class="code">components/CompatibilitySection.tsx</code></td>
+        </tr>
+        <tr>
+          <td><code class="code">342016e</code></td>
+          <td>David Stack</td>
+          <td>2026-03-10</td>
+          <td>docs: update Gemini CLI instructions (#137)</td>
+          <td><code class="code">components/FAQSection.tsx</code></td>
+        </tr>
+        <tr>
+          <td><code class="code">906511e</code></td>
+          <td>Dylan Joss</td>
+          <td>2026-03-10</td>
+          <td>Add Augment Code CLI as a compatible agent (#156)</td>
+          <td><code class="code">components/CompatibilitySection.tsx</code>, <code class="code">public/logos/augment.svg</code></td>
+        </tr>
+        <tr>
+          <td><code class="code">37f86ac</code></td>
+          <td>Irina Chichikova</td>
+          <td>2026-03-10</td>
+          <td>Add Junie agent to the agents list (#145)</td>
+          <td><code class="code">components/CompatibilitySection.tsx</code>, <code class="code">public/logos/junie.svg</code></td>
+        </tr>
+        <tr>
+          <td><code class="code">efab70c</code></td>
+          <td>Romain Huet</td>
+          <td>2025-12-19</td>
+          <td>Upgrade Next.js and React</td>
+          <td><code class="code">next-env.d.ts</code>, <code class="code">package.json</code>, <code class="code">pnpm-lock.yaml</code>, <code class="code">tsconfig.json</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">The most recent commits are mostly feature/content updates for the compatibility section and agent list; the older commit is a platform dependency upgrade.</p>
+  </div>
+
+  <div class="section">
+    <h2>Component Architecture</h2>
+    <p>The page is composed of the following major components:</p>
+    <ul>
+      <li><strong><code class="code">pages/index.tsx</code></strong> — root page that stitches together sections and fetches contributor metadata.</li>
+      <li><strong><code class="code">components/Hero.tsx</code></strong> — prominent landing section with CTA buttons and a sample AGENTS.md code snippet.</li>
+      <li><strong><code class="code">components/CompatibilitySection.tsx</code></strong> — interactive marquee of supported agents with a grid toggle.</li>
+      <li><strong><code class="code">components/ExamplesSection.tsx</code></strong> — renders an example code block and the repo cards list.</li>
+      <li><strong><code class="code">components/ExampleListSection.tsx</code></strong> — hard-coded example repos and contributor avatars.</li>
+      <li><strong><code class="code">components/CodeExample.tsx</code></strong> — Markdown window with copy-to-clipboard support.</li>
+      <li><strong><code class="code">components/FAQSection.tsx</code></strong> — FAQ content and usage examples for agent configuration.</li>
+      <li><strong><code class="code">components/HowToUseSection.tsx</code></strong> — usage guidance for adding AGENTS.md files.</li>
+      <li><strong><code class="code">components/AboutSection.tsx</code></strong> — project background and stewarding organizations.</li>
+      <li><strong><code class="code">components/Section.tsx</code></strong> — wrapper component for section layout and headings.</li>
+    </ul>
+    <p>The reusable <code class="code">Section</code> component standardizes section spacing, maximum width, headings, and prose styling.</p>
+  </div>
+
+  <div class="section">
+    <h2>Build / Runtime Flow</h2>
+    <p>This project uses:</p>
+    <ul>
+      <li><strong>Next.js 16</strong> for React server-side rendering and static generation.</li>
+      <li><strong>pnpm</strong> as the package manager.</li>
+      <li><strong>Tailwind CSS v4</strong> via <code class="code">@tailwindcss/postcss</code>.</li>
+      <li><strong>TypeScript</strong> with strict settings and path alias <code class="code">@/*</code>.</li>
+    </ul>
+    <p>Page data generation is handled by <code class="code">getStaticProps</code> in <code class="code">pages/index.tsx</code>. It fetches contributor avatars from GitHub for the example repo cards, caches the results in-memory during the Node process lifetime, and revalidates on a schedule.</p>
+    <p>The interactive compatibility section runs on the client and uses <code class="code">IntersectionObserver</code> to pause or play marquee animation depending on viewport visibility.</p>
+  </div>
+
+  <div class="section">
+    <h2>Key Files</h2>
+    <ul>
+      <li><code class="code">package.json</code> — dependency list and scripts.</li>
+      <li><code class="code">pages/index.tsx</code> — page composition and data fetching.</li>
+      <li><code class="code">public/logos/*.svg</code> — agent logo assets used by the compatibility section.</li>
+      <li><code class="code">components/CodeExample.tsx</code> — markdown rendering and copy button behavior.</li>
+      <li><code class="code">tsconfig.json</code> — compiler options, strict typing, module resolution.
+      </li>
+      <li><code class="code">postcss.config.mjs</code> — tailwind postcss plugin config.</li>
+      <li><code class="code">next.config.ts</code> — minimal Next.js config with <code class="code">reactStrictMode</code>.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Architecture Diagram</h2>
+    <svg class="diagram" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af" />
+        </marker>
+      </defs>
+      <rect x="40" y="40" width="260" height="120" class="box" />
+      <text x="70" y="70" class="box-title">Browser / Client</text>
+      <text x="70" y="92" class="box-text">Next.js page hydration</text>
+      <text x="70" y="108" class="box-text">Compatibility marquee</text>
+      <text x="70" y="124" class="box-text">Copy-to-clipboard + SVG logos</text>
+
+      <rect x="340" y="40" width="260" height="120" class="box" />
+      <text x="370" y="70" class="box-title">React Components</text>
+      <text x="370" y="92" class="box-text">Hero, Sections, FAQ, Examples</text>
+      <text x="370" y="108" class="box-text">CodeExample, LogoItem, ExampleCards</text>
+      <text x="370" y="124" class="box-text">Section layout + styling wrappers</text>
+
+      <rect x="640" y="40" width="220" height="120" class="box" />
+      <text x="665" y="70" class="box-title">Next.js Runtime</text>
+      <text x="665" y="92" class="box-text">getStaticProps for GitHub API</text>
+      <text x="665" y="108" class="box-text">Static generation + revalidation</text>
+      <text x="665" y="124" class="box-text">Node build / dev server</text>
+
+      <line x1="300" y1="100" x2="340" y2="100" class="arrow" />
+      <line x1="610" y1="100" x2="640" y2="100" class="arrow" />
+
+      <rect x="160" y="220" width="320" height="120" class="box" />
+      <text x="190" y="250" class="box-title">Assets & Styling</text>
+      <text x="190" y="272" class="box-text">public/logos/*.svg</text>
+      <text x="190" y="288" class="box-text">styles/globals.css</text>
+      <text x="190" y="304" class="box-text">Tailwind via postcss</text>
+
+      <line x1="400" y1="160" x2="400" y2="220" class="arrow" />
+
+      <rect x="560" y="220" width="280" height="120" class="box" />
+      <text x="595" y="250" class="box-title">GitHub API</text>
+      <text x="595" y="272" class="box-text">contributorsByRepo</text>
+      <text x="595" y="288" class="box-text">avatars + totals</text>
+      <text x="595" y="304" class="box-text">Optional GH_AUTH_TOKEN support</text>
+
+      <line x1="640" y1="160" x2="640" y2="220" class="arrow" />
+
+      <rect x="40" y="360" width="820" height="140" class="box" />
+      <text x="70" y="395" class="box-title">Build / Toolchain</text>
+      <text x="70" y="417" class="box-text">pnpm install</text>
+      <text x="70" y="433" class="box-text">pnpm run dev</text>
+      <text x="70" y="449" class="box-text">pnpm run build</text>
+      <text x="70" y="465" class="box-text">eslint / Next.js / TypeScript</text>
+    </svg>
+    <p class="note">Interactive section state is managed in the browser while the rest of the page is generated ahead of time.</p>
+  </div>
+
+  <div class="section">
+    <h2>How to View</h2>
+    <p>Open this file in your browser:</p>
+    <p><code class="code">repo-analysis.html</code></p>
+    <p>To start the site locally:</p>
+    <p class="code">pnpm run dev</p>
+  </div>
+</body>
+</html>
