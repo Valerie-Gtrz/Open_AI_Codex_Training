@@ -73,7 +73,7 @@
 }
 
 :root {
-  --background: #7FFF00;
+  --background: #8FBC8F;
   --foreground: #171717;
   --font-sans: 'OpenAI Sans', Arial, Helvetica, sans-serif;
 }
@@ -87,7 +87,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #8FBC8F;
     --foreground: #ededed;
   }
 }
